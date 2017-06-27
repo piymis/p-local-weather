@@ -1,6 +1,6 @@
 const openWeatherMapApiKey = '4f785cddcbb60d07fe0ba9e8c18c3a97';
 const openWeatherMapApiUrl = 'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=';
-const userLocationApiUrl = 'http://ip-api.com/json';
+const userLocationApiUrl = 'http://cors-proxy.htmldriven.com/?url=http://ip-api.com/json';
 
 
 
