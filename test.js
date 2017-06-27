@@ -1,6 +1,6 @@
 const openWeatherMapApiKey = '4f785cddcbb60d07fe0ba9e8c18c3a97';
 const openWeatherMapApiUrl = 'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=';
-const userLocationApiUrl = 'http://cors-proxy.htmldriven.com/?url=http://ip-api.com/json';
+const userLocationApiUrl = 'https://freegeoip.net/json/';
 
 
 
@@ -12,8 +12,8 @@ function getUserLocation() {
         if (request.readyState == XMLHttpRequest.DONE && request.status == 200) {
             var userLocation = JSON.parse(request.responseText);
             var weatherUrl = openWeatherMapApiUrl + openWeatherMapApiKey;
-            weatherUrl = weatherUrl.replace(/{lat}/, userLocation.lat);
-            weatherUrl = weatherUrl.replace(/{lon}/, userLocation.lon);
+            weatherUrl = weatherUrl.replace(/{lat}/, userLocation.latitude);
+            weatherUrl = weatherUrl.replace(/{lon}/, userLocation.longitude);
             getWeatherByCoordinates(weatherUrl)
         }
 
