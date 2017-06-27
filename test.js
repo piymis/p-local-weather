@@ -1,5 +1,4 @@
-const openWeatherMapApiKey = '4f785cddcbb60d07fe0ba9e8c18c3a97';
-const openWeatherMapApiUrl = 'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=';
+const openWeatherMapApiUrl = 'https://api.apixu.com/v1/current.json?key=ab4c157f6f6644d182e205155172706&q={lat},{lon}';
 const userLocationApiUrl = 'https://freegeoip.net/json/';
 
 
@@ -11,7 +10,7 @@ function getUserLocation() {
     request.onreadystatechange = function () {
         if (request.readyState == XMLHttpRequest.DONE && request.status == 200) {
             var userLocation = JSON.parse(request.responseText);
-            var weatherUrl = openWeatherMapApiUrl + openWeatherMapApiKey;
+            var weatherUrl = openWeatherMapApiUrl;
             weatherUrl = weatherUrl.replace(/{lat}/, userLocation.latitude);
             weatherUrl = weatherUrl.replace(/{lon}/, userLocation.longitude);
             getWeatherByCoordinates(weatherUrl)
@@ -26,7 +25,7 @@ function getWeatherByCoordinates(weatherUrl) {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (request.readyState == XMLHttpRequest.DONE && request.status == 200) {
-            var currentTempInCelsius = (Number(JSON.parse(request.responseText).main.temp) - 273.15).toFixed(2);
+            var currentTempInCelsius = (Number(JSON.parse(request.responseText).current.temp_c)).toFixed(2);
             document.getElementById('weather-data').innerHTML = String(currentTempInCelsius);
         }
 
