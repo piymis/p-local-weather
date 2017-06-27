@@ -2,4 +2,9 @@ body {
     background-color: #161616;
     color: white;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 5rem;
+}
+.weather-header {
+        font-size: 5rem;
 }
