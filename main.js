@@ -51,12 +51,13 @@ function getWeatherByCoordinates(weatherUrl) {
 }
 
 function updateWeather() {
-    var currentTemperature;
+    var currentTemperature, temperatureUnit;
     if (isCelsius) {
         currentTemperature = Number(weatherData.current.temp_c).toFixed(2);
-
+        temperatureUnit = 'C';
     } else {
         currentTemperature = Number(weatherData.current.temp_f).toFixed(2);
+        temperatureUnit = 'F';
     }
     
     // Current temperature
@@ -64,7 +65,7 @@ function updateWeather() {
     weatherValueElement.innerHTML = String(currentTemperature);
     
     // 
-    var weatherUnitData = String.fromCharCode(176) + 'C';
+    var weatherUnitData = String.fromCharCode(176) + temperatureUnit;
     document.getElementById('weather-unit').innerHTML = weatherUnitData;
     
     var imgDataElement = document.getElementById('weather-image');

@@ -8,3 +8,6 @@ body {
 .weather-header {
         font-size: 5rem;
 }
+.container {
+    margin-top: 10%;
+}
